@@ -17,10 +17,8 @@ public class EmployeeService{ // main service class for Employee
 
 @Autowired
 private EmployeeRepository repo; // repo object for DB
-
 // map to track machines assigned
 private Map<String,Integer> machineAssignments=new HashMap<>();
-
 // Machines list by dept wise 
 private Map<String,String[]> departmentMachines=Map.of(
 "A",new String[]{"A1","A2","A3","A4","A5","A6","A7","A8","A9","A10"},
@@ -28,15 +26,12 @@ private Map<String,String[]> departmentMachines=Map.of(
 "C",new String[]{"C1","C2","C3","C4","C5","C6","C7","C8","C9","C10"},
 "D",new String[]{"D1","D2","D3","D4","D5","D6","D7","D8","D9","D10"}
 );
-
-public EmployeeService(){
-    
+public EmployeeService(){    
 // initializing all dept to 0 machines used
 machineAssignments.put("A",0);
 machineAssignments.put("B",0);
 machineAssignments.put("C",0);
 machineAssignments.put("D",0); 
-
 }
 
 public Employee addEmployee(Employee e){
