@@ -26,49 +26,44 @@ public class EmployeeController{
 @Autowired
 private EmployeeService service; // for calling service methods
 
-
-
 @PostMapping
 public ResponseEntity<Employee> add(@RequestBody Employee e){
 Employee saved=service.addEmployee(e); // save employee
-return ResponseEntity.status(201).body(saved); // return saved emp
+	return ResponseEntity.status(201).body(saved); // return saved emp
 }
 
 @PutMapping("/{id}")
 public ResponseEntity<?> update(@PathVariable String id,@RequestBody Map<String,String> body){
-Employee updated=service.updateEmployee(id,body.get("status"),body.get("feedback"));
-if(updated!=null){
-return ResponseEntity.ok(updated);
-}
+ Employee updated=service.updateEmployee(id,body.get("status"),body.get("feedback"));
+  if(updated!=null){
+  return ResponseEntity.ok(updated);
+ }
 else{
-return ResponseEntity.status(404).body("Employee Not Found");
+  return ResponseEntity.status(404).body("Employee Not Found");
 }
 }
 
 @GetMapping
-public ResponseEntity<List<Employee>> all(){
-return ResponseEntity.ok(service.getAll());
+public ResponseEntity<List<Employee>>all(){
+ return ResponseEntity.ok(service.getAll());
 }
 	
 @GetMapping("/pdf")
-public ResponseEntity<?> getPdf(@RequestHeader String role){
-    
-// check role is supervisor
-if(!role.equalsIgnoreCase("supervisor")){
+public ResponseEntity<?>getPdf(@RequestHeader String role){
+    // check role is supervisor
+ if(!role.equalsIgnoreCase("supervisor")){
 return ResponseEntity.status(403).body("Access Denied");
 }
-
 byte[] pdfData=service.generatePdfFromHtml();
-
 return ResponseEntity.ok()
-.header("Content-Disposition","attachment; filename=employees.pdf")
-.body(pdfData);
+ .header("Content-Disposition","attachment; filename=employees.pdf")
+  .body(pdfData);
 }
 
 // health check api to see if working
 @GetMapping("/health")
 public String health(){
-return "API Working Fine";
+ return "API Working Fine";
 }
 
 }
