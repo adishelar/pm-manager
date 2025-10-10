@@ -2,59 +2,58 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 
-function App() {
-    const [employees, setEmployees] = useState([]);
-    const [form, setForm] = useState({ name: '', department: '' });
-    const [emergencyMessages, setEmergencyMessages] = useState([]);
-    const [role, setRole] = useState('operator'); // Change to 'supervisor' for download button
+function App(){
+const[employees, setEmployees]= useState([]);
+ const[form, setForm]= useState({ name: '', department: '' });
+ const[emergencyMessages, setEmergencyMessages]= useState([]);
+ const[role, setRole]= useState('operator'); // Change to 'supervisor' for download button
 
-    const departments = ['A', 'B', 'C', 'D'];
-
-    useEffect(() => {
-        axios.get('http://pm-scheduler.onrender.com/api/employees')
-            .then(res => setEmployees(res.data))
-            .catch(err => console.error(err));
+ const departments = ['A','B','C','D'];
+useEffect(() => {
+     axios.get('http://pm-scheduler.onrender.com/api/employees')
+     .then(res =>setEmployees(res.data))
+     .catch(err =>console.error(err));
     }, []);
 
-    const handleSubmit = (e) => {
+    const handleSubmit =(e) =>{
         e.preventDefault();
         axios.post('http://pm-scheduler.onrender.com/api/employees', form)
-            .then(res => {
-                setEmployees([...employees, res.data]);
-                setForm({ name: '', department: '' });
+            .then(res =>{
+             setEmployees([...employees, res.data]);
+             setForm({ name: '', department: '' });
             })
-            .catch(err => console.error(err));
+            .catch(err =>console.error(err));
     };
 
-    const handleUpdate = (id, status, feedback) => {
+    const handleUpdate =(id, status, feedback) =>{
         axios.put(`http://pm-scheduler.onrender.com/api/employees/${id}`, { status, feedback })
-            .then(res => {
-                setEmployees(
-                    employees.map(emp => emp.id === id ? res.data : emp)
-                );
+            .then(res =>{
+             setEmployees(
+                  employees.map(emp => emp.id === id ? res.data : emp)
+              );
             })
-            .catch(err => console.error(err));
+            .catch(err =>console.error(err));
     };
 
-    const downloadPdf = () => {
+    const downloadPdf =() =>{
         axios.get('http://pm-scheduler.onrender.com/api/employees/pdf', {
             responseType: 'blob',
             headers: { role: role } // Sending role to backend
         })
-            .then(res => {
-                const url = URL.createObjectURL(new Blob([res.data]));
-                const link = document.createElement('a');
-                link.href = url;
-                link.setAttribute('download', 'employees.pdf');
-                document.body.appendChild(link);
-                link.click();
+            .then(res =>{
+             const url =URL.createObjectURL(new Blob([res.data]));
+            const link =document.createElement('a');
+            link.href =url;
+             link.setAttribute('download','employees.pdf');
+             document.body.appendChild(link);
+             link.click();
             })
-            .catch(err => alert("Only Supervisor can download PDF!"));
+            .catch(err =>alert("Only Supervisor can download PDF!"));
     };
 
-    const addEmergencyMessage = () => {
-        const msg = prompt("Enter Emergency Message:");
-        if (msg) {
+    const addEmergencyMessage =()=>{
+        const msg =prompt("Enter Emergency Message:");
+        if (msg){
             setEmergencyMessages([...emergencyMessages, msg]);
         }
     };
@@ -66,8 +65,8 @@ function App() {
             <div>
                 <label>Select Role: </label>
                 <select value={role} onChange={e => setRole(e.target.value)}>
-                    <option value="operator">Operator</option>
-                    <option value="supervisor">Supervisor</option>
+                <option value="operator">Operator</option>
+                <option value="supervisor">Supervisor</option>
                 </select>
             </div>
 
