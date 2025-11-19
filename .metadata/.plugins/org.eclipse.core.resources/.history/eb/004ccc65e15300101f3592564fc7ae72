@@ -1,0 +1,5 @@
+package com.PM_scheduler.Repo;
+
+public interface EmployeeRepository {
+
+}
