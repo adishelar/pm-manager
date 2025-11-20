@@ -6,7 +6,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Stage 2: Run the JAR
-FROM openjdk:17-jdk-slim
+FROM openjdk:17-jdk-slim-bullseye
 WORKDIR /app
 COPY --from=builder /app/target/*.jar app.jar
 EXPOSE 8080
