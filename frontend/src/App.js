@@ -4,7 +4,7 @@ import SupervisorLogin from "./SupervisorLogin";
 
 export default function App() {
   return (
-    <BrowserRouter basename="/PM-Scheduler">
+    <BrowserRouter basename="/pm-manager">
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/Supervisor-login" element={<SupervisorLogin />} />
