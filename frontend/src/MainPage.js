@@ -24,7 +24,7 @@ function MainPage() {
   // Load all employees on first load
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/employees")
+      .get("http://https://pm-manager-y8b1.onrender.com/api/endpoint/api/employees")
       .then((res) => setEmployees(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -33,7 +33,7 @@ function MainPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8080/api/employees", form)
+      .post("http://https://pm-manager-y8b1.onrender.com/api/endpoint/api/employees", form)
       .then((res) => {
         setEmployees([...employees, res.data]);
         setForm({ name: "", department: "" });
@@ -44,7 +44,7 @@ function MainPage() {
   // Update employee
   const handleUpdate = (id, status, feedback) => {
     axios
-      .put(`http://localhost:8080/api/employees/${id}`, { status, feedback })
+      .put(`http://https://pm-manager-y8b1.onrender.com/api/endpoint/api/employees/${id}`, { status, feedback })
       .then((res) =>
         setEmployees(
           employees.map((emp) => (emp.id === id ? res.data : emp))
@@ -56,7 +56,7 @@ function MainPage() {
   // Download full PDF
   const downloadPdf = () => {
     axios
-      .get("http://localhost:8080/api/employees/pdf", {
+      .get("http://https://pm-manager-y8b1.onrender.com/api/endpoint/api/employees/pdf", {
         responseType: "blob",
         headers: { role },
       })
@@ -83,7 +83,7 @@ function MainPage() {
     if (!date) return;
 
     axios
-      .get(`http://localhost:8080/api/employees/by-date?date=${date}`)
+      .get(`http://https://pm-manager-y8b1.onrender.com/api/endpoint/api/employees/by-date?date=${date}`)
       .then((res) => setEmployees(res.data))
       .catch((err) => console.error(err));
   };
@@ -97,7 +97,7 @@ function MainPage() {
 
     axios
       .get(
-        `http://localhost:8080/api/employees/pdf-by-date?date=${selectedDate}`,
+        `http://https://pm-manager-y8b1.onrender.com/api/endpoint/api/employees/pdf-by-date?date=${selectedDate}`,
         {
           responseType: "blob",
           headers: { role },
