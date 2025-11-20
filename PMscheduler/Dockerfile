@@ -1,12 +1,12 @@
-# Stage 1: Build the JAR
+# Stage 1: build
 FROM maven:3.8.5-openjdk-17 AS builder
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests
 
-# Stage 2: Run the JAR
-FROM openjdk:17-jdk-slim-bullseye
+# Stage 2: runtime
+FROM eclipse-temurin:17-jdk
 WORKDIR /app
 COPY --from=builder /app/target/*.jar app.jar
 EXPOSE 8080
