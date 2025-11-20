@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.PM_scheduler.Enitity.Employee;
+import com.PM_scheduler.Entity.Employee;
 import com.PM_scheduler.Repo.EmployeeRepository;
 import com.PM_scheduler.Service.EmployeeService;
 
@@ -43,7 +43,7 @@ public class EmployeeController {
 
     // Update
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable String id, @RequestBody Map<String, String> body) {
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Map<String, String> body) {
         Employee updated = service.updateEmployee(id, body.get("status"), body.get("feedback"));
 
         if (updated != null) {

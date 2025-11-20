@@ -8,7 +8,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.PM_scheduler.Enitity.Employee;
+import com.PM_scheduler.Entity.Employee;
 import com.PM_scheduler.Repo.EmployeeRepository;
 import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
 
@@ -60,7 +60,7 @@ public class EmployeeService {
     }
 
     // Update status + feedback
-    public Employee updateEmployee(String id, String status, String feedback) {
+    public Employee updateEmployee(Long id, String status, String feedback) {
         Employee e = repo.findById(id).orElse(null);
 
         if (e != null) {
@@ -162,5 +162,6 @@ public class EmployeeService {
             return new byte[0];
         }
     }
+
 
 }

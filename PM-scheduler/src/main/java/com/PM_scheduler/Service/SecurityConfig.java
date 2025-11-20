@@ -11,19 +11,22 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
+
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
-            .csrf(csrf -> csrf.disable())
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/Supervisor/**").authenticated()
-                .anyRequest().permitAll()
+        .csrf(csrf -> csrf.disable())
+        .headers(headers -> headers.frameOptions(frame -> frame.disable())) // allow H2 console
+        .authorizeHttpRequests(auth -> auth
+            .requestMatchers("/Supervisor/**").authenticated()
+            .requestMatchers("/h2-console/**").permitAll() // allow H2 console
+            .anyRequest().permitAll()
             )
             .formLogin(form -> form
                 .loginPage("/Supervisor/login")       // page that shows login form
                 .loginProcessingUrl("/Supervisor/login") // <── authentication URL
-                .defaultSuccessUrl("http://localhost:3000/PM-Scheduler/?role=Supervisor", true)
+                .defaultSuccessUrl("https://adishelar.github.io/PM-Scheduler/?role=Supervisor", true)
                 .permitAll()
             )
             .logout(logout -> logout

@@ -1,15 +1,21 @@
-package com.PM_scheduler.Enitity;
+package com.PM_scheduler.Entity;
 
 import java.util.Date;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import jakarta.persistence.Id;
 
-@Document("Employee")
+
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+
+@Entity
 public class Employee {
 
-	 @Id
-	    private String id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	    private Long id;
 	    private String name;
 	    private String department;
 	    private String machine;
@@ -18,10 +24,10 @@ public class Employee {
 	    private Date timestamp = new Date();
 	    
 	    
-		public String getId() {
+		public Long getId() {
 			return id;
 		}
-		public void setId(String id) {
+		public void setId(Long id) {
 			this.id = id;
 		}
 		public String getName() {
