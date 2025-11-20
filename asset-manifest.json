@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/pm-manager/static/css/main.6c3c1fdf.css",
-    "main.js": "/pm-manager/static/js/main.c8577ce4.js",
+    "main.js": "/pm-manager/static/js/main.278bbf73.js",
     "static/js/453.1100b402.chunk.js": "/pm-manager/static/js/453.1100b402.chunk.js",
     "index.html": "/pm-manager/index.html",
     "main.6c3c1fdf.css.map": "/pm-manager/static/css/main.6c3c1fdf.css.map",
-    "main.c8577ce4.js.map": "/pm-manager/static/js/main.c8577ce4.js.map",
+    "main.278bbf73.js.map": "/pm-manager/static/js/main.278bbf73.js.map",
     "453.1100b402.chunk.js.map": "/pm-manager/static/js/453.1100b402.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6c3c1fdf.css",
-    "static/js/main.c8577ce4.js"
+    "static/js/main.278bbf73.js"
   ]
 }
