@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/PM-Scheduler/static/css/main.6c3c1fdf.css",
-    "main.js": "/PM-Scheduler/static/js/main.c8f729b4.js",
-    "static/js/453.1100b402.chunk.js": "/PM-Scheduler/static/js/453.1100b402.chunk.js",
-    "index.html": "/PM-Scheduler/index.html",
-    "main.6c3c1fdf.css.map": "/PM-Scheduler/static/css/main.6c3c1fdf.css.map",
-    "main.c8f729b4.js.map": "/PM-Scheduler/static/js/main.c8f729b4.js.map",
-    "453.1100b402.chunk.js.map": "/PM-Scheduler/static/js/453.1100b402.chunk.js.map"
+    "main.css": "/pm-manager/static/css/main.6c3c1fdf.css",
+    "main.js": "/pm-manager/static/js/main.c8577ce4.js",
+    "static/js/453.1100b402.chunk.js": "/pm-manager/static/js/453.1100b402.chunk.js",
+    "index.html": "/pm-manager/index.html",
+    "main.6c3c1fdf.css.map": "/pm-manager/static/css/main.6c3c1fdf.css.map",
+    "main.c8577ce4.js.map": "/pm-manager/static/js/main.c8577ce4.js.map",
+    "453.1100b402.chunk.js.map": "/pm-manager/static/js/453.1100b402.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6c3c1fdf.css",
-    "static/js/main.c8f729b4.js"
+    "static/js/main.c8577ce4.js"
   ]
 }
