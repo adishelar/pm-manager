@@ -1,6 +1,6 @@
 # PM Manager
 
-This is a **Project Management Scheduler** application with a React frontend and Spring Boot backend.
+This is a ** Management Scheduler** application with a React frontend and Spring Boot backend.
 
 **Frontend deployed on GitHub Pages:**  
 [https://adishelar.github.io/pm-manager/](https://adishelar.github.io/pm-manager/)
