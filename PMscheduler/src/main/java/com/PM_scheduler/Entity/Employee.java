@@ -14,14 +14,14 @@ import jakarta.persistence.GenerationType;
 public class Employee {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	    private Long id;
 	    private String name;
 	    private String department;
 	    private String machine;
-	    private String status = "Not Active";
+	    private String status="Not Active";
 	    private String feedback;
-	    private Date timestamp = new Date();
+	    private Date timestamp=new Date();
 	    
 	    
 		public Long getId() {
