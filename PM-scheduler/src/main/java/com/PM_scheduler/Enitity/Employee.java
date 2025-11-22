@@ -7,21 +7,20 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("Employee")
 public class Employee {
-
-	 @Id
+ @Id
 	    private String id;
 	    private String name;
 	    private String department;
 	    private String machine;
-	    private String status = "Not Active";
+	    private String status="Not Active";
 	    private String feedback;
-	    private Date timestamp = new Date();
+	    private Date timestamp=new Date();
 	    
 	    
-		public String getId() {
+		public String getId(){
 			return id;
 		}
-		public void setId(String id) {
+		public void setId(String id){
 			this.id = id;
 		}
 		public String getName() {
